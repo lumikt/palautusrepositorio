@@ -1,5 +1,5 @@
 import unittest
-from statistics_service import StatisticsService
+from statistics_service import StatisticsService, SortBy
 from player import Player
 
 class PlayerReaderStub:
@@ -29,10 +29,20 @@ class TestStatisticsService(unittest.TestCase):
 
         self.assertAlmostEqual(haku[0].name, "Lemieux")
     
-    def test_top_pelaajat(self):
+    def test_top_pelaajat_pisteittain(self):
         haku = self.stats.top(1)
 
         self.assertAlmostEqual(haku[0].name, "Gretzky")
+
+    def test_top_pelaajat_maaleittain(self):
+        haku = self.stats.top(1, SortBy.GOALS)
+
+        self.assertAlmostEqual(haku[0].name, "Lemieux")
+
+    def test_top_pelaajat_assists(self):
+        haku = self.stats.top(2, SortBy.ASSISTS)
+        self.assertAlmostEqual(haku[0].name, "Gretzky")
+
 
     def test_pelaaja_ei_loydy(self):
         haku = self.stats.search("Messi")
