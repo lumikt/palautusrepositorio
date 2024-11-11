@@ -15,10 +15,15 @@ def main():
 
     print("Players from FIN:")
     print()
-
+    fin_players = []
     for player in players:
         if player.nationality == "FIN":
-            print(player)
+            fin_players.append(player)
+
+    for player in sorted(fin_players,key=lambda player: player.points, reverse=True):
+        print(player)
+
+
 
 if __name__ == "__main__":
     main()
