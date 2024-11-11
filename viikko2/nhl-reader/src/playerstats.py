@@ -15,11 +15,11 @@ class PlayerStats:
         return sorted(top_scores,key=lambda player: player.points, reverse=True)
 
     def get_nationalities(self):
-        nationalities = ""
+        nationalities = []
         seen = set()
         for player in self.players:
             if player.nationality not in seen:
-                nationalities+= f'{player.nationality}/'
+                nationalities.append(player.nationality)
                 seen.add(player.nationality)
         
         return nationalities
