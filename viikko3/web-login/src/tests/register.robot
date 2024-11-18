@@ -14,6 +14,20 @@ Register With Valid Username And Password
     Click Button    Register
     Title Should Be    Welcome to Ohtu Application!
 
+Login After Successful Registration
+    Go To Register Page
+    Set Username  testi
+    Set Password    testi123
+    Repeat Password    testi123
+    Click Button    Register
+    Go To Main Page
+    Click Button    Logout
+    Go To Login Page
+    Set Username    testi
+    Set Password    testi123
+    Click Button    Login
+    Title Should Be    Ohtu Application main page
+
 Register With Too Short Username And Valid Password
     Reset Application
     Go To Register Page
@@ -23,6 +37,19 @@ Register With Too Short Username And Valid Password
     Click Button    Register
     Page Should Contain    Username is too short
 
+Login After Failed Registration
+    Reset Application
+    Go To Register Page
+    Set Username  testi
+    Set Password    a
+    Repeat Password    a
+    Click Button    Register
+    Go To Login Page
+    Set Username    testi
+    Set Password    a
+    Click Button    Login
+    Page Should Contain    Invalid username or password
+    
 
 Register With Valid Username And Too Short Password
     Reset Application
