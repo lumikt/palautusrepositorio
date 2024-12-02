@@ -37,13 +37,15 @@ class IntJoukko:
 
             # ei mahdu enempää, luodaan uusi säilytyspaikka luvuille
             if self.alkioiden_lkm % len(self.ljono) == 0:
-                taulukko_old = self.ljono
-
-                self.ljono = self._luo_lista(self.alkioiden_lkm + self.kasvatuskoko)
-                self.kopioi_lista(taulukko_old, self.ljono)
+                self.kasvata_listaa()
             return True
             
         return False
+
+    def kasvata_listaa(self):
+            taulukko_old = self.ljono
+            self.ljono = self._luo_lista(self.alkioiden_lkm + self.kasvatuskoko)
+            self.kopioi_lista(taulukko_old, self.ljono)
 
     def poista(self, poistettava_luku):
         for i in range(0, self.alkioiden_lkm):
