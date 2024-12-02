@@ -28,12 +28,11 @@ class Nollaus:
         self.io.nollaa()
 
 class Kumoa:
-    def __init__(self,io, lue_syote):
+    def __init__(self,io):
         self.io = io
-        self._lue_syote = lue_syote
 
     def suorita(self):
-        pass
+        self.io.kumoa()
 
 class Komento(Enum):
     SUMMA = 1
@@ -51,7 +50,7 @@ class Kayttoliittyma:
             Komento.SUMMA: Summa(sovelluslogiikka, self._lue_syote),
             Komento.EROTUS: Erotus(sovelluslogiikka, self._lue_syote),
             Komento.NOLLAUS: Nollaus(sovelluslogiikka, self._lue_syote),
-            Komento.KUMOA: Kumoa(sovelluslogiikka, self._lue_syote) # ei ehkä tarvita täällä...
+            Komento.KUMOA: Kumoa(sovelluslogiikka) # ei ehkä tarvita täällä...
         }
 
 
